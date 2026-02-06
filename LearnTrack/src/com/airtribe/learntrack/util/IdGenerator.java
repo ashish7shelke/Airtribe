@@ -1,4 +1,4 @@
-package src.com.airtribe.learntrack.util;
+package com.airtribe.learntrack.util;
 
 public class IdGenerator {
     private static int studentId = 100;
@@ -24,6 +24,4 @@ public class IdGenerator {
     public static int nextEnrollmentId() {
         return ++enrollmentId;
     }  
-    
-    
 }

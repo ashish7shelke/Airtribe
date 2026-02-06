@@ -1,17 +1,17 @@
-package src.com.airtribe.learntrack.ui;
+package com.airtribe.learntrack.ui;
 
 import java.util.Scanner;
 
-import src.com.airtribe.learntrack.service.StudentService;
-import src.com.airtribe.learntrack.util.IdGenerator;
-import src.com.airtribe.learntrack.service.CourseService;
-import src.com.airtribe.learntrack.service.EnrollmentService;
-import src.com.airtribe.learntrack.constants.MenuOptions;
-import src.com.airtribe.learntrack.entity.Course;
-import src.com.airtribe.learntrack.entity.Enrollment;
-import src.com.airtribe.learntrack.entity.Student;
-import src.com.airtribe.learntrack.enums.EnrollmentStatus;
-import src.com.airtribe.learntrack.exception.EntityNotFoundException;
+import com.airtribe.learntrack.service.StudentService;
+import com.airtribe.learntrack.util.IdGenerator;
+import com.airtribe.learntrack.service.CourseService;
+import com.airtribe.learntrack.service.EnrollmentService;
+import com.airtribe.learntrack.constants.MenuOptions;
+import com.airtribe.learntrack.entity.Course;
+import com.airtribe.learntrack.entity.Enrollment;
+import com.airtribe.learntrack.entity.Student;
+import com.airtribe.learntrack.enums.EnrollmentStatus;
+import com.airtribe.learntrack.exception.EntityNotFoundException;
 
 
 public class Main {
@@ -171,8 +171,13 @@ public class Main {
                                 case 3:
                                     System.out.print("Enrollment ID: ");
                                     int eid = readInt(scanner);
-                                    System.out.print("Select Status by number: COMPLETED / CANCELLED): ");
-                                    EnrollmentStatus status = EnrollmentStatus.valueOf(scanner.nextLine());
+                                    System.out.print("Select Status by number: COM(1) / CAN(2)): ");
+                                    int select = scanner.nextInt();
+                                    EnrollmentStatus status;
+                                    if(select == 1)
+                                        status = EnrollmentStatus.COMPLETED;
+                                    else
+                                        status = EnrollmentStatus.CANCELLED;
 
                                     enrollmentService.updateEnrollmentStatus(eid, status);
                                     break;

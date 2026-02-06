@@ -1,4 +1,4 @@
-package src.com.airtribe.learntrack.entity;
+package com.airtribe.learntrack.entity;
 
 public class Person {
     private int id;
@@ -6,7 +6,7 @@ public class Person {
     protected String lastName;
     protected String email;
     
-    Person(int id_, String first, String last, String email_)
+    public Person(int id_, String first, String last, String email_)
     {
         id = id_;
         firstName = first;
@@ -19,7 +19,7 @@ public class Person {
     public String getFirstName(){return firstName;}
     public String getLastName(){return lastName;}
     public String getEmail(){return email;}
-    public String getDisplayName() {return new String(firstName + " " +lastName);}
+    public String getDisplayName() {return (firstName + " " +lastName);}
 
     // All mutator or setter methods
     public void setId(int id_) {id = id_;}

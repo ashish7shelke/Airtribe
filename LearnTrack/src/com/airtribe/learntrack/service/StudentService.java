@@ -1,7 +1,7 @@
-package src.com.airtribe.learntrack.service;
+package com.airtribe.learntrack.service;
 
-import src.com.airtribe.learntrack.entity.Student;
-import src.com.airtribe.learntrack.exception.EntityNotFoundException;
+import com.airtribe.learntrack.entity.Student;
+import com.airtribe.learntrack.exception.EntityNotFoundException;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class StudentService {
 
     public void addStudent(Student student) {
         students.add(student);
-        System.out.println("Student added with ID: " + students.getLast().getId());
+        System.out.println("Student added with ID: " + students.get(students.size() - 1).getId());
     }
 
     public void removeStudent(int studentId) throws EntityNotFoundException {
@@ -26,17 +26,6 @@ public class StudentService {
         student.setLastName(lastName);
         System.out.println("Student updated with ID: " + studentId);
     }   
-    /*public Student captureStudentData()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\tFirst Name: ");
-        String fn = scanner.nextLine();
-        System.out.print("\tLast Name: ");
-        String ln = scanner.nextLine();
-        int id = IdGenerator.nextStudentId();
-        scanner.close();
-        return new Student(id, fn, ln);
-    }*/
 
     public Student findById(int id) throws EntityNotFoundException {
         for (Student s : students) {

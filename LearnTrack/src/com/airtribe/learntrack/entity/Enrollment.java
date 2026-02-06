@@ -1,8 +1,8 @@
-package src.com.airtribe.learntrack.entity;
+package com.airtribe.learntrack.entity;
 import java.time.*;
 import java.util.ArrayList;
 
-import src.com.airtribe.learntrack.enums.EnrollmentStatus;
+import com.airtribe.learntrack.enums.EnrollmentStatus;
 public class Enrollment {
     static int EnrollmentCount = 0;
     private int id;
@@ -23,14 +23,14 @@ public class Enrollment {
     public int getId() {return id;}
     public int getStudentId(){return studentId;}
     public ArrayList<Integer> getCourseId(){return courses;}
-    public LocalDate getEnrollemntData(){return enrollmentDate;}
+    public LocalDate getEnrollemntDate(){return enrollmentDate;}
     public EnrollmentStatus getStatus(){return status;}
 
     // All mutator or setter methods
     public void setId(int id_) {id = id_;}
     public void setStudentId(int id){studentId = id;}
     public void setCourseId(ArrayList<Integer> course_){courses = course_;}
-    public void setEnrollemntData(LocalDate date){enrollmentDate = date;}
+    public void setEnrollemntDate(LocalDate date){enrollmentDate = date;}
     public void setStatus(EnrollmentStatus status_){
         status = status_;
         if(status == EnrollmentStatus.COMPLETED)
@@ -39,7 +39,7 @@ public class Enrollment {
             EnrollmentCount = EnrollmentCount - 1;        
     }
 
-    public void getEnrollmentDetails()
+    public void showEnrollmentDetails()
     {
         System.out.println("\tEnrollment Id: " + id);
         System.out.println("\tData :" + enrollmentDate);

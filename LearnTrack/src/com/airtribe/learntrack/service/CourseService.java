@@ -1,16 +1,18 @@
-package src.com.airtribe.learntrack.service;
+package com.airtribe.learntrack.service;
 
 import java.util.ArrayList;
 
-import src.com.airtribe.learntrack.entity.Course;
-import src.com.airtribe.learntrack.exception.EntityNotFoundException;
+import com.airtribe.learntrack.entity.Course;
+import com.airtribe.learntrack.exception.EntityNotFoundException;
+
+import com.airtribe.learntrack.util.IdGenerator;
 
 public class CourseService {
     private ArrayList<Course> courses = new ArrayList<>();
 
     public void addCourse(Course course) {
         courses.add(course);
-        System.out.println("Course added with ID: " + courses.getLast().getId());
+        System.out.println("Course added with ID: " + courses.get(courses.size() - 1).getId());
     }
 
     public void removeCourse(int courseId) throws EntityNotFoundException {
@@ -27,17 +29,6 @@ public class CourseService {
         course.setDurationInWeeks(duration);
         System.out.println("Course updated with ID: " + courseId);
     }    
-    /*public Course captureCourseData()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\tCourse Name: ");
-        String cn = scanner.nextLine();
-        System.out.print("\tDescription: ");
-        String cd = scanner.nextLine();
-        int id = IdGenerator.nextCourseId();
-        scanner.close();
-        return new Course(id, cn, 12, cd);
-    }*/
     
     public Course findById(int id) throws EntityNotFoundException {
         for (Course c : courses) {
@@ -50,8 +41,8 @@ public class CourseService {
 
     public void createDefaultCourses()
     {
-        addCourse(new Course(courses.size()+1, "Core Java", 12, "Learning Java basics"));
-        addCourse(new Course(courses.size()+1, "DSA", 12, "Learning Data Structures and Algorithms"));
+        addCourse(new Course(IdGenerator.nextCourseId(), "Core Java", 12, "Learning Java basics"));
+        addCourse(new Course(IdGenerator.nextCourseId(), "DSA", 12, "Learning Data Structures and Algorithms"));
     }
 
     public void listCourses() {

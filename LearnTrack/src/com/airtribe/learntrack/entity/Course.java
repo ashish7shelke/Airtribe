@@ -1,16 +1,17 @@
-package src.com.airtribe.learntrack.entity;
+package com.airtribe.learntrack.entity;
 
-import src.com.airtribe.learntrack.enums.CourseStatus;
+import com.airtribe.learntrack.enums.CourseStatus;
 
 public class Course {
   
     private int id;
     private String courseName;
-    private String description;
     private int durationInWeeks;
+    private String description;    
     private CourseStatus status;
 
-    public Course(int id, String courseName, int durationInWeeks, String description) {
+    public Course(int id, String courseName, int durationInWeeks, String description) 
+    {
         this.id = id;
         this.courseName = courseName;
         this.description = description;
@@ -18,17 +19,21 @@ public class Course {
         this.status = CourseStatus.ACTIVE;
     }
 
-    public CourseStatus isActive() {
+    public CourseStatus activeStatus() 
+    {
         return status;
     }
 
-    public void deactivate() {
+    public void deactivate() 
+    {
         this.status = CourseStatus.INACTIVE;
     }
 
-    public void activate() {
+    public void activate() 
+    {
         this.status = CourseStatus.ACTIVE;
     }
+
     public void toggleActive()
     {
         if(this.status == CourseStatus.ACTIVE)
@@ -41,7 +46,7 @@ public class Course {
     public String getName(){return courseName;}
     public int getDurationInWeeks(){return durationInWeeks;}
     public CourseStatus getStatus(){return status;}
-    public String getDisplayName() {return new String(id + " " +courseName);}
+    public String getDisplayName() {return (id + " " +courseName);}
 
     // All mutator or setter methods
     public void setId(int id_) {id = id_;}
@@ -52,8 +57,8 @@ public class Course {
     
     public void showDetails()
     {
-        System.out.println("\tCourse Detils as follows: ");
-        System.out.println("\tCourse Id: " + id);
+        System.out.println("\tCourse Details as follows: ");
+        System.out.println("\tCourse ID: " + id);
         System.out.println("\tCourse Name: " + courseName);
         System.out.println("\tDuration in Week: " + durationInWeeks);
         System.out.println();

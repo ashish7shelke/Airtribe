@@ -1,4 +1,4 @@
-package src.com.airtribe.learntrack.entity;
+package com.airtribe.learntrack.entity;
 
 public class Trainer extends Person {
 

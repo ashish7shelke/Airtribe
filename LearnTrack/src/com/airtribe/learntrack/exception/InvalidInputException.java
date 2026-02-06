@@ -1,4 +1,4 @@
-package src.com.airtribe.learntrack.exception;
+package com.airtribe.learntrack.exception;
 
 public class InvalidInputException extends Exception  {
     public InvalidInputException(String message) {

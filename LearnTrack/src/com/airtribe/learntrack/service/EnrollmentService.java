@@ -1,17 +1,17 @@
-package src.com.airtribe.learntrack.service;
+package com.airtribe.learntrack.service;
 
 import java.util.ArrayList;
 
-import src.com.airtribe.learntrack.entity.Enrollment;
-import src.com.airtribe.learntrack.enums.EnrollmentStatus;
-import src.com.airtribe.learntrack.exception.EntityNotFoundException;
+import com.airtribe.learntrack.entity.Enrollment;
+import com.airtribe.learntrack.enums.EnrollmentStatus;
+import com.airtribe.learntrack.exception.EntityNotFoundException;
 
 public class EnrollmentService {
     private ArrayList<Enrollment> enrollmentList = new ArrayList<>();
 
     public void addEnrollment(Enrollment enroll) {
         enrollmentList.add(enroll);
-        System.out.println("Enrollment added with ID: " + enrollmentList.getLast().getId());        
+        System.out.println("Enrollment added with ID: " + enrollmentList.get(enrollmentList.size() - 1).getId());        
     }
 
     public void removeEnrollment(int enrollmentId) throws EntityNotFoundException {
@@ -26,19 +26,6 @@ public class EnrollmentService {
         enrollment.setStatus(status);
         System.out.println("Enrollment updated with ID: " + enrollmentId);
     }    
-    /*public Enrollment captureEnroll()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\tStudent ID range: 101 to " + IdGenerator.getStudentId());
-        System.out.print("\tStudent Id ");
-        int si = scanner.nextInt();
-        System.out.println("\tCourse ID range: 301 to " + IdGenerator.getCourseId());
-        System.out.print("\tCourse Id: ");
-        int ci = scanner.nextInt();
-        int id = IdGenerator.nextEnrollmentId();
-        scanner.close();
-        return new Enrollment(id, si, ci); 
-    }*/
 
     public Enrollment findById(int id) throws EntityNotFoundException {
         for (Enrollment e : enrollmentList) {
@@ -49,13 +36,14 @@ public class EnrollmentService {
         throw new EntityNotFoundException("Enrollment not found with ID: " + id);
     }
 
-    public void listEnrollments() {
+    public void listEnrollments() 
+    {
         if (enrollmentList.isEmpty()) {
             System.out.println("No enrollment available.");
             return;
         }
         for (Enrollment e : enrollmentList) {
-            e.getEnrollmentDetails();
+            e.showEnrollmentDetails();
         }
     }
     
@@ -65,7 +53,7 @@ public class EnrollmentService {
 
         for (Enrollment e : enrollmentList) {
             if (e.getStudentId() == studentId) {
-                e.getEnrollmentDetails();
+                e.showEnrollmentDetails();
                 found = true;
             }
         }

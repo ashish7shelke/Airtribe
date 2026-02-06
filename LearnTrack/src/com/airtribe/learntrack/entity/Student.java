@@ -1,10 +1,8 @@
-package src.com.airtribe.learntrack.entity;
+package com.airtribe.learntrack.entity;
 
 public class Student extends Person{
-
     private int batch;
     private boolean active;
-
 
     public Student(int id_, String first, String last)
     {
