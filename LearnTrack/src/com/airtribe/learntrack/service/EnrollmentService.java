@@ -27,9 +27,12 @@ public class EnrollmentService {
         System.out.println("Enrollment updated with ID: " + enrollmentId);
     }    
 
-    public Enrollment findById(int id) throws EntityNotFoundException {
-        for (Enrollment e : enrollmentList) {
-            if (e.getId() == id) {
+    public Enrollment findById(int id) throws EntityNotFoundException 
+    {
+        for (Enrollment e : enrollmentList) 
+            {
+            if (e.getId() == id) 
+            {
                 return e;
             }
         }
@@ -38,11 +41,13 @@ public class EnrollmentService {
 
     public void listEnrollments() 
     {
-        if (enrollmentList.isEmpty()) {
+        if (enrollmentList.isEmpty()) 
+            {
             System.out.println("No enrollment available.");
             return;
         }
-        for (Enrollment e : enrollmentList) {
+        for (Enrollment e : enrollmentList) 
+        {
             e.showEnrollmentDetails();
         }
     }
@@ -51,14 +56,17 @@ public class EnrollmentService {
     {
        boolean found = false;
 
-        for (Enrollment e : enrollmentList) {
-            if (e.getStudentId() == studentId) {
+        for (Enrollment e : enrollmentList) 
+        {
+            if (e.getStudentId() == studentId) 
+            {
                 e.showEnrollmentDetails();
                 found = true;
             }
         }
 
-        if (!found) {
+        if (!found) 
+        {
             System.out.println("No enrollments found for Student ID: " + studentId);
         } 
     }

@@ -23,6 +23,8 @@ public class Student extends Person{
     public void showDetails()
     {
         super.showDetails();
+        System.out.println("Batch: " + batch);
+
     }
     @Override
     public String getDisplayName()
